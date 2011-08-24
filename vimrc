@@ -6,8 +6,6 @@ filetype plugin indent on
 "" ================
 "" Ruby stuff
 "" ================
-"syntax on                 " Enable syntax highlighting
-"filetype plugin indent on " Enable filetype-specific indenting and plugins
 "
 "augroup myfiletypes
 "  " Clear old autocmds in group
@@ -18,13 +16,13 @@ filetype plugin indent on
 "" ================
 "
 "
-"let mapleader = ","
+let mapleader = ","
 "
-"map <Leader>b :buffer 
-"map <F2> :<C-U>!bundle exec rspec <C-R>=expand("%:p") <CR> --drb -l <C-R>=line("'.") <CR> <CR>
+map <Leader>b :buffer 
+map <F2> :<C-U>!bundle exec rspec <C-R>=expand("%:p") <CR> --drb -l <C-R>=line("'.") <CR> <CR>
 "
 "vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-"map <Leader>bd :bd<CR>
+map <Leader>bd :bd<CR>
 "map <Leader>def :/def
 "map <Leader>cla :/class
 "map <Leader>cc :!cucumber %<CR>
@@ -186,9 +184,9 @@ filetype plugin indent on
 "
 "
 "inoremap <C-j> <Esc>
-"if $COLORTERM == 'gnome-terminal' 
-"  set term=gnome-256color 
-""  colorscheme railscasts 
-"else 
-"  colorscheme default 
-"endif 
+if $COLORTERM == 'gnome-terminal' 
+  set term=gnome-256color 
+  colorscheme railscasts 
+else 
+  colorscheme default 
+endif 
