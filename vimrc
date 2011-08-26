@@ -1,5 +1,6 @@
-" This is initiazl setting from pathogen
+" This is initialze setting from pathogen
 call pathogen#infect()
+call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
@@ -17,58 +18,15 @@ filetype plugin indent on
 "
 "
 let mapleader = ","
-"
-map <Leader>b :buffer 
-map <F2> :<C-U>!bundle exec rspec <C-R>=expand("%:p") <CR> --drb -l <C-R>=line("'.") <CR> <CR>
-"
-"vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-map <Leader>bd :bd<CR>
-"map <Leader>def :/def
-"map <Leader>cla :/class
-"map <Leader>cc :!cucumber %<CR>
-"map <Leader>co :TComment<CR>
-"map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
-"map <Leader>gac :Gcommit -m -a ""<LEFT>
-"map <Leader>gc :Gcommit -m ""<LEFT>
-"map <Leader>gs :Gstatus<CR>
-"map <Leader>f :sp spec/factories.rb<CR>
-"map <Leader>fa :sp test/factories.rb<CR>
-"map <Leader>h :FuzzyFinderTextMate<CR>
-"map <Leader>l :!ruby <C-r>% \| less<CR>
-"map <Leader>m :Rmodel 
-"map <Leader>n ,w,t
-"map <Leader>o ?def <CR>:nohl<CR>w"zy$:!ruby -I"test" <C-r>% -n <C-r>z<CR>
-"map <Leader>p :set paste<CR>i
-"map <Leader>rb :Rake!<CR>
-"map <Leader>rf :FuzzyFinderTextMateRefreshFiles<CR>
-"map <Leader>rw :%s/\s\+$//
-"map <Leader>sc :sp db/schema.rb<cr>
-"map <Leader>sm :RSmodel 
-"map <Leader>su :RSunittest 
-"map <Leader>sv :RSview 
-"map <Leader>t :!ruby -I"test" -I"spec" %<CR>
-"map <Leader>u :Runittest 
-"map <Leader>vc :RVcontroller 
-"map <Leader>vf :RVfunctional 
-"map <Leader>vi :tabe ~/.vimrc<CR>
-"map <Leader>vu :RVunittest 
-"map <Leader>vm :RVmodel 
-"map <Leader>vv :RVview 
-"map <Leader>w <C-w>w
-"
-"map <C-h> :nohl<CR>
-"imap <C-l> <Space>=><Space>
-"map <C-s> <esc>:w<CR>
-"imap <C-s> <esc>:w<CR>
-"map <C-t> <esc>:tabnew<CR>
-"map <C-x> <C-w>c
-"map <C-n> :cn<CR>
-"map <C-p> :cp<CR>
-"
-"
-"set nocompatible
+"if filereadable(expand("~/.vim"))
+source ~/.vim/keybindings.vim
+
+" compatybile with vi
+set nocompatible
 "set backspace=indent,eol,start " allow backspacing over everything in insert mode
-"set history=500		" keep 500 lines of command line history
+set history=500		" keep 500 lines of command line history
+set hlsearch
+set hidden " dont need to save buffer when switching to another
 "set ruler		" show the cursor position all the time
 "set showcmd		" display incomplete commands
 "set autoindent
@@ -87,21 +45,19 @@ map <Leader>bd :bd<CR>
 "set noincsearch
 "set ignorecase smartcase
 "set laststatus=2  " Always show status line.
-"set number 
+set number 
 "set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
-"set autoindent " always set autoindenting on
+" Use _ as a word-separator
+set iskeyword-=_
+set autoindent " always set autoindenting on
 "
 "" Edit another file in the same directory as the current file
 "" uses expression to extract path from current file's path
-"map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
-"map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
-"map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
-"
+""
 "" Set the tag file search order
+
 "set tags=./tags;
 "
-"" Use _ as a word-separator
-"set iskeyword-=_
 "
 "" Use Ack instead of grep
 "set grepprg=ack
@@ -132,28 +88,6 @@ map <Leader>bd :bd<CR>
 "" End of things set by me.
 "" ========================================================================
 "
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"" Switch syntax highlighting on, when the terminal has colors
-"" Also switch on highlighting the last used search pattern.
-"if &t_Co > 2 || has("gui_running")
-"  syntax on
-"  set hlsearch
-"endif
-"
 "" Only do this part when compiled with support for autocommands.
 "if has("autocmd")
 "
@@ -183,7 +117,6 @@ map <Leader>bd :bd<CR>
 "endif " has("autocmd")
 "
 "
-"inoremap <C-j> <Esc>
 if $COLORTERM == 'gnome-terminal' 
   set term=gnome-256color 
   colorscheme railscasts 
