@@ -40,10 +40,10 @@ nmap <F12> :!bundle exec rspec <C-R>% --drb<CR>
 "map <Leader>vv :RVview 
 map <Leader>w <C-w>w
 "
-"map <C-h> :nohl<CR>
+map <C-h> :nohl<CR>
 "imap <C-l> <Space>=><Space>
 "map <C-s> <esc>:w<CR>
-"imap <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
 "map <C-t> <esc>:tabnew<CR>
 "map <C-x> <C-w>c
 "map <C-n> :cn<CR>

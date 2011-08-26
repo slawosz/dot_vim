@@ -18,7 +18,6 @@ filetype plugin indent on
 "
 "
 let mapleader = ","
-"if filereadable(expand("~/.vim"))
 source ~/.vim/keybindings.vim
 
 " compatybile with vi
@@ -43,8 +42,9 @@ set hidden " dont need to save buffer when switching to another
 "set sw=2
 "set smarttab
 "set noincsearch
-"set ignorecase smartcase
-"set laststatus=2  " Always show status line.
+set ignorecase
+set smartcase
+set laststatus=2  " Always show status line.
 set number 
 "set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 " Use _ as a word-separator
@@ -56,7 +56,7 @@ set autoindent " always set autoindenting on
 ""
 "" Set the tag file search order
 
-"set tags=./tags;
+set tags=./tags;
 "
 "
 "" Use Ack instead of grep
