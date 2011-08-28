@@ -1,4 +1,3 @@
-map <Leader>b :buffer 
 map <F2> :<C-U>!bundle exec rspec <C-R>=expand("%:p") <CR> --drb -l <C-R>=line("'.") <CR> <CR>
 "
 "vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
