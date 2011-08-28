@@ -54,3 +54,6 @@ map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 
+map <F9> <Esc>:SweetVimRspecRunFile<CR>
+map <F7> <Esc>:SweetVimRspecRunFocused<CR>
+map <F8> <Esc>:SweetVimRspecRunPrevious<CR>
