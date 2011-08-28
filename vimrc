@@ -123,3 +123,6 @@ if $COLORTERM == 'gnome-terminal'
 else 
   colorscheme default 
 endif 
+
+let g:CommandTMaxHeight = 15
+let g:CommandTMatchWindowAtTop = 1
