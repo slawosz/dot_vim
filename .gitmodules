@@ -13,3 +13,6 @@
 [submodule "bundle/sweet-rspec-vim"]
 	path = bundle/sweet-rspec-vim
 	url = https://github.com/duskhacker/sweet-rspec-vim.git
+[submodule "bundle/vim-rake"]
+	path = bundle/vim-rake
+	url = git://github.com/tpope/vim-rake.git
