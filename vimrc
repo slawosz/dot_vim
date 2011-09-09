@@ -17,12 +17,14 @@ augroup END
 "" ================
 "
 "
+autocmd BufWritePre * :%s/\s\+$//e
 let mapleader = ","
 source ~/.vim/keybindings.vim
 
 " compatybile with vi
 set nocompatible
-"set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+
 set history=500		" keep 500 lines of command line history
 set hlsearch
 set hidden " dont need to save buffer when switching to another
@@ -48,7 +50,7 @@ set laststatus=2  " Always show status line.
 set number 
 "set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 " Use _ as a word-separator
-set iskeyword-=_
+" set iskeyword-=_
 set autoindent " always set autoindenting on
 "
 "" Edit another file in the same directory as the current file
@@ -74,7 +76,7 @@ set tags=./tags;
 "" Format xml files
 "au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null" 
 "
-"set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
+set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 "
 "set nofoldenable " Fuck code folding...
 "
