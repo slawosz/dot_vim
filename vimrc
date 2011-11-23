@@ -4,6 +4,8 @@ call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
+set expandtab
+set ts=2
 "" ================
 "" Ruby stuff
 "" ================
@@ -18,6 +20,7 @@ augroup END
 "
 "
 autocmd BufWritePre * :%s/\s\+$//e
+au InsertLeave <buffer> update
 let mapleader = ","
 source ~/.vim/keybindings.vim
 runtime macros/matchit.vim
@@ -48,6 +51,7 @@ set ignorecase
 set smartcase
 set laststatus=2  " Always show status line.
 set number
+set isf+=@-@ " allow @ in paths (usefull in gemsets)
 "set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 " Use _ as a word-separator
 " set iskeyword-=_
@@ -83,7 +87,8 @@ set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 "command Q q " Bind :Q to :q
 "command Qall qall
 "
-"set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
 "
 "
 "" ========================================================================
@@ -126,5 +131,46 @@ else
   colorscheme default
 endif
 
-let g:CommandTMaxHeight = 15
-let g:CommandTMatchWindowAtTop = 1
+" command-t settings
+let g:CommandTMaxHeight = 10
+let g:CommandTMatchWindowAtTop = 0
+
+" http://vimdoc.sourceforge.net/htmldoc/insert.html#ft-ruby-omni
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+
+" experimental https://wincent.com/blog/running-rspec-specs-from-inside-vim
+function! RunSpec(command)
+  " TODO: handle args such as --tag focus here, or make a separate command for it
+  if a:command == ''
+    let dir = 'spec'
+  else
+    let dir = a:command
+  endif
+  cexpr system("b/rspec -r spec/support/vim_formatter.rb -f RSpec::Core::Formatters::VimFormatter " . dir)
+  cw
+endfunction
+command! -nargs=? -complete=file Spec call RunSpec(<q-args>)
+" map <leader>s :Spec<space>
+
+" experimental http://vim.wikia.com/wiki/VimTip1599
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  call setline(1, 'You entered:    ' . a:cmdline)
+  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+  call setline(3,substitute(getline(2),'.','=','g'))
+  execute '$read !'. expanded_cmdline
+  setlocal nomodifiable
+  1
+endfunction

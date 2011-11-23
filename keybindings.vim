@@ -1,55 +1,77 @@
-map <F2> :<C-U>!bundle exec rspec <C-R>=expand("%:p") <CR> --drb -l <C-R>=line("'.") <CR> <CR>
-"
-"vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-map <Leader>bd :bd<CR>
 " rspec
-map <F10> :call RunCurrentSpec()<CR>
-nmap <F11> :call RunLastSpec()<CR>
-nmap <F12> :!bundle exec rspec <C-R>% --drb<CR>
-map <Leader>w <C-w>w
-"
-map <C-h>l :nohl<CR>
-"imap <C-l> <Space>=><Space>
-"map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-"map <C-t> <esc>:tabnew<CR>
-"map <C-x> <C-w>c
-"map <C-n> :cn<CR>
-"map <C-p> :cp<CR>
+map <Leader>rf :SweetVimRspecRunFile<CR>
+map <Leader>rl :SweetVimRspecRunFocused<CR>
+map <Leader>rr :SweetVimRspecRunPrevious<CR>
 
-inoremap <C-j> <Esc>
+" CommandT
+" map <Leader>b ;CommandTBuffer<CR>
+" map <Leader>t ;CommandT<CR>
+
+map <Leader>w <C-w>w
+map <C-h>l :nohl<CR>
+imap <C-s> <esc>:w<CR>
 
 map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 
-map <unique> <Leader>r :R<CR>
-map <unique> <Leader>rs :RS<CR>
-map <unique> <Leader>rv :RV<CR>
-map <unique> <Leader>a :A<CR>
-map <unique> <Leader>as :AS<CR>
-map <unique> <Leader>av :AV<CR>
-map <unique> <Leader>j :bn<CR>
-map <unique> <Leader>k :bp<CR>
+
+" buffers
+map <Leader>bd :tabclose<CR>
 map <unique> <Leader>al :ball<CR>
-map <unique> <C-j> <C-w>j
-map <unique> <C-l> <C-w>l
-map <unique> <C-h> <C-w>h
-map <unique> <C-k> <C-w>k
+" map <unique> <C-j> <C-w>j
+" map <unique> <C-l> <C-w>l
+" map <unique> <C-h> <C-w>h
+" map <unique> <C-k> <C-w>k
 map <unique> <Leader><Leader> :ZoomWin<CR>
-map <unique> <Leader><Space> a<Space><Esc>
+map <unique> <C-j> :tabn<CR>
+map <unique> <C-m> :tabp<CR>
+map <unique> <C-h> :tabfirst<CR>
+map <unique> <Leader>fj :tabm 0<CR>
+map <unique> <Leader>fk :tabm 1<CR>
+" map <unique> <Leader>l <C-^><CR>
+map <unique> <Leader>vs :vsplit<CR>
+
+" ruby and rails relative navigation
+map <unique> <Leader>r :RT<CR>
+map <unique> <Leader>rs :RTS<CR>
+map <unique> <Leader>rv :RTV<CR>
+map <unique> <Leader>a :AT<CR>
+map <unique> <Leader>as :ATS<CR>
+map <unique> <Leader>av :ATV<CR>
+
+map <unique> <Leader><Space> i<Space><Esc>
 map <unique> <Leader>o o<Esc>
+
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <Leader>sl :s/\<<C-r><C-w>\>//g<Left><Left>
+
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
 
+" folding in ruby
+map <unique> <Leader>fr :g/\s*it /normal jvirzf<CR> " uses http://vimcasts.org/blog/2010/12/a-text-object-for-ruby-blocks/
 
+nnoremap <S-K> a<CR><Esc>k$ " Opposite of Shift-J
+map <C-s> <esc>:w<CR>
 
+" extreme!
+" nore ; :
+" nore : ;
+inoremap jk <Left><C-[> " may be extreme and unusefull
 
+" do something with range with last changed and selected text
 
+" let's be more productive!
+" inoremap <BS> <nop>
+" cnoremap <BS> <nop>
 
+" inoremap <Enter> <nop>
+" cnoremap <Enter> <nop>
+
+" Unused but may be usefull
 
 "map <Leader>def :/def
 "map <Leader>cla :/class
@@ -61,14 +83,12 @@ nnoremap <C-i> <C-i>zz
 "map <Leader>gs :Gstatus<CR>
 "map <Leader>f :sp spec/factories.rb<CR>
 "map <Leader>fa :sp test/factories.rb<CR>
-"map <Leader>h :FuzzyFinderTextMate<CR>
 "map <Leader>l :!ruby <C-r>% \| less<CR>
 "map <Leader>m :Rmodel
 "map <Leader>n ,w,t
 "map <Leader>o ?def <CR>:nohl<CR>w"zy$:!ruby -I"test" <C-r>% -n <C-r>z<CR>
 "map <Leader>p :set paste<CR>i
 "map <Leader>rb :Rake!<CR>
-"map <Leader>rf :FuzzyFinderTextMateRefreshFiles<CR>
 "map <Leader>rw :%s/\s\+$//
 "map <Leader>sc :sp db/schema.rb<cr>
 "map <Leader>sm :RSmodel
@@ -82,3 +102,9 @@ nnoremap <C-i> <C-i>zz
 "map <Leader>vu :RVunittest
 "map <Leader>vm :RVmodel
 "map <Leader>vv :RVview
+"map <C-t> <esc>:tabnew<CR>
+"map <C-x> <C-w>c
+"map <C-n> :cn<CR>
+"map <C-p> :cp<CR>
+"imap <C-l> <Space>=><Space>
+"vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
