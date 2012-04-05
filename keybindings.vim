@@ -8,10 +8,10 @@ map <Leader>rr :SweetVimRspecRunPrevious<CR>
 " map <Leader>t ;CommandT<CR>
 
 map <Leader>w <C-w>w
-map <C-h>l :nohl<CR>
+map <Leader>l :nohl<CR>
 imap <C-s> <esc>:w<CR>
 
-map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
+map <Leader>e :tabnew <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 
@@ -24,8 +24,10 @@ map <unique> <Leader>al :ball<CR>
 " map <unique> <C-h> <C-w>h
 " map <unique> <C-k> <C-w>k
 map <unique> <Leader><Leader> :ZoomWin<CR>
-map <unique> <C-j> :tabn<CR>
-map <unique> <C-m> :tabp<CR>
+map <unique> <C-k> :tabn<CR>
+map <unique> <C-j> :tabp<CR>
+map <unique> <Leader>j :tabn<CR>
+map <unique> <Leader>m :tabp<CR>
 map <unique> <C-h> :tabfirst<CR>
 map <unique> <Leader>fj :tabm 0<CR>
 map <unique> <Leader>fk :tabm 1<CR>
@@ -58,9 +60,10 @@ nnoremap <S-K> a<CR><Esc>k$ " Opposite of Shift-J
 map <C-s> <esc>:w<CR>
 
 " extreme!
-" nore ; :
+nore <Space> :
 " nore : ;
 inoremap jk <Left><C-[> " may be extreme and unusefull
+cmap jk <Left><C-[> " may be extreme and unusefull
 
 " do something with range with last changed and selected text
 

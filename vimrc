@@ -31,6 +31,7 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 
 set history=500		" keep 500 lines of command line history
 set hlsearch
+set incsearch " awesome
 set hidden " dont need to save buffer when switching to another
 "set ruler		" show the cursor position all the time
 "set showcmd		" display incomplete commands
@@ -134,6 +135,8 @@ endif
 " command-t settings
 let g:CommandTMaxHeight = 10
 let g:CommandTMatchWindowAtTop = 0
+let g:CommandTMatchWindowReverse = 1
+let g:CommandTAcceptSelectionTabMap = '<CR>'
 
 " http://vimdoc.sourceforge.net/htmldoc/insert.html#ft-ruby-omni
 let g:rubycomplete_buffer_loading = 1
@@ -174,3 +177,5 @@ function! s:RunShellCommand(cmdline)
   setlocal nomodifiable
   1
 endfunction
+highlight ColorColumn ctermbg=darkgrey ctermfg=white guibg=#222
+set cc=81
