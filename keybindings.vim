@@ -24,11 +24,10 @@ map <unique> <Leader>al :ball<CR>
 " map <unique> <C-h> <C-w>h
 " map <unique> <C-k> <C-w>k
 map <unique> <Leader><Leader> :ZoomWin<CR>
-map <unique> <C-k> :tabn<CR>
-map <unique> <C-j> :tabp<CR>
+map <unique> <C-l> :tabn<CR>
+map <unique> <C-h> :tabp<CR>
 map <unique> <Leader>j :tabn<CR>
 map <unique> <Leader>m :tabp<CR>
-map <unique> <C-h> :tabfirst<CR>
 map <unique> <Leader>fj :tabm 0<CR>
 map <unique> <Leader>fk :tabm 1<CR>
 " map <unique> <Leader>l <C-^><CR>
@@ -110,4 +109,4 @@ cmap jk <Left><C-[> " may be extreme and unusefull
 "map <C-n> :cn<CR>
 "map <C-p> :cp<CR>
 "imap <C-l> <Space>=><Space>
-"vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
