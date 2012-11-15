@@ -1,6 +1,4 @@
 " This is initialze setting from pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
@@ -23,6 +21,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 au InsertLeave <buffer> update
 let mapleader = ","
 source ~/.vim/keybindings.vim
+source ~/.vim/vundleconf.vim
 runtime macros/matchit.vim
 
 " compatybile with vi
@@ -45,6 +44,11 @@ set hidden " dont need to save buffer when switching to another
 "set guioptions-=T
 "set guifont=Triskweline_10:h10
 "set et
+"
+
+scriptencoding utf-8
+set encoding=utf-8
+
 set sw=2
 set smarttab
 "set noincsearch
