@@ -1,6 +1,6 @@
 " rspec
-map <Leader>rf :SweetVimRspecRunFile<CR>
-map <Leader>rl :SweetVimRspecRunFocused<CR>
+map <Leader>rf :RunSpec<CR>
+map <Leader>rl :RunSpecLine<CR>
 map <Leader>rr :SweetVimRspecRunPrevious<CR>
 
 " CommandT

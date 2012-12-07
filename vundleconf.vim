@@ -9,7 +9,11 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-fugitive'
 Bundle 'The-NERD-tree'
 Bundle 'ZoomWin'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
 Bundle 'snipMate'
 Bundle 'surround.vim'
 Bundle 'repeat.vim'
 Bundle 'matchit.zip'
+Bundle 'skwp/vim-rspec'
+Bundle 'rson/vim-conque'
