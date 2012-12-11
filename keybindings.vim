@@ -9,7 +9,7 @@ map <Leader>rr :SweetVimRspecRunPrevious<CR>
 
 map <Leader>w <C-w>w
 map <Leader>gf <C-w>gf
-map <Leader>l :nohl<CR>
+map <Leader>nl :nohl<CR>
 imap <C-s> <esc>:w<CR>
 
 map <Leader>e :t <C-R>=expand("%:p:h") . '/'<CR>
@@ -20,7 +20,7 @@ map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>p :CtrlP<CR>
 " buffers
-map <Leader>bd :bd<CR>
+map <Leader>db :bd<CR>
 map <unique> <Leader>al :ball<CR>
 map <unique> <C-j> <C-w>j
 map <unique> <C-l> <C-w>l
@@ -31,6 +31,8 @@ map <unique> <Leader><Leader> :ZoomWin<CR>
 "map <unique> <C-h> :bn<CR>
 map <unique> <Leader>j :bp<CR>
 map <unique> <Leader>k :bn<CR>
+map <unique> <Leader>h :tabp<CR>
+map <unique> <Leader>l :tabn<CR>
 map <unique> <Leader>sp :sbp<CR>
 map <unique> <Leader>sn :sbn<CR>
 " map <unique> <Leader>l <C-^><CR>
