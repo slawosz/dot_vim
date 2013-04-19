@@ -1,7 +1,7 @@
 " rspec
-map <Leader>rf :RunSpec<CR>
-map <Leader>rl :RunSpecLine<CR>
-map <Leader>rr :SweetVimRspecRunPrevious<CR>
+map <Leader>rt :call RunCurrentSpecFile()<CR>
+map <Leader>rn :call RunNearestSpec()<CR>
+map <Leader>rl :call RunLastSpec()<CR>
 
 " CommandT
 " map <Leader>b ;CommandTBuffer<CR>
@@ -66,8 +66,8 @@ map <C-s> <esc>:w<CR>
 " extreme!
 nore <Space> :
 " nore : ;
-inoremap jk <Left><C-[>
-cmap jk <Left><C-[>
+inoremap jk <C-[>
+cmap jk <C-[>
 
 " do something with range with last changed and selected text
 
