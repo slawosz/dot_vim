@@ -2,6 +2,9 @@
 syntax on
 filetype plugin indent on
 
+set splitbelow
+set splitright
+
 set expandtab
 set ts=2
 "" ================
