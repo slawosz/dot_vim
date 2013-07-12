@@ -35,19 +35,8 @@ set history=500		" keep 500 lines of command line history
 set hlsearch
 set incsearch " awesome
 set hidden " dont need to save buffer when switching to another
-"set ruler		" show the cursor position all the time
-"set showcmd		" display incomplete commands
-"set showmatch
-"set nowrap
-" set backupdir=~/.tmp
-" set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
-"set autoread
-"set wmh=0
-"set viminfo+=!
-"set guioptions-=T
-"set guifont=Triskweline_10:h10
-"set et
-"
+let g:rspec_command = "Dispatch zeus rspec {spec}"
+
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
@@ -63,7 +52,6 @@ set encoding=utf-8
 
 set sw=2
 set smarttab
-"set noincsearch
 set ignorecase
 set smartcase
 set laststatus=2  " Always show status line.
@@ -82,20 +70,6 @@ set autoindent " always set autoindenting on
 set tags=./tags;
 "
 "
-"" Use Ack instead of grep
-"set grepprg=ack
-"
-"" Make the omnicomplete text readable
-":highlight PmenuSel ctermfg=black
-"
-"" Fuzzy finder: ignore stuff that can't be opened, and generated files
-"let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
-"
-"" Highlight the status line
-"highlight StatusLine ctermfg=blue ctermbg=yellow
-"
-"" Format xml files
-"au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 "
 set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 "
@@ -158,20 +132,6 @@ let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
-
-" experimental https://wincent.com/blog/running-rspec-specs-from-inside-vim
-function! RunSpec(command)
-  " TODO: handle args such as --tag focus here, or make a separate command for it
-  if a:command == ''
-    let dir = 'spec'
-  else
-    let dir = a:command
-  endif
-  cexpr system("b/rspec -r spec/support/vim_formatter.rb -f RSpec::Core::Formatters::VimFormatter " . dir)
-  cw
-endfunction
-command! -nargs=? -complete=file Spec call RunSpec(<q-args>)
-" map <leader>s :Spec<space>
 
 " experimental http://vim.wikia.com/wiki/VimTip1599
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
