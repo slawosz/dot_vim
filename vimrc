@@ -1,7 +1,3 @@
-" This is initialze setting from pathogen
-syntax on
-filetype plugin indent on
-
 set splitbelow
 set splitright
 
@@ -27,6 +23,7 @@ source ~/.vim/keybindings.vim
 source ~/.vim/vundleconf.vim
 runtime macros/matchit.vim
 
+
 " compatybile with vi
 set nocompatible
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -37,6 +34,11 @@ set incsearch " awesome
 set hidden " dont need to save buffer when switching to another
 let g:rspec_command = "Dispatch zeus rspec {spec}"
 
+filetype off
+filetype plugin indent off
+set rtp+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
