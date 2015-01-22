@@ -21,6 +21,7 @@ au InsertLeave <buffer> update
 let mapleader = ","
 source ~/.vim/keybindings.vim
 source ~/.vim/vundleconf.vim
+source ~/.vim/tagbar.vim
 runtime macros/matchit.vim
 
 
