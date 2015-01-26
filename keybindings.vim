@@ -52,6 +52,10 @@ map <unique> <Leader>o o<Esc>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <Leader>sl :s/\<<C-r><C-w>\>//g<Left><Left>
 
+let g:UltiSnipsExpandTrigger="<Leader>s"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap <C-o> <C-o>zz
