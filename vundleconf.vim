@@ -1,7 +1,9 @@
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
+Bundle 'ngmy/vim-rubocop'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-endwise'
@@ -23,3 +25,6 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
+
+call vundle#end()
+filetype plugin indent on

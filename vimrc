@@ -20,6 +20,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 au InsertLeave <buffer> update
 let mapleader = ","
 source ~/.vim/keybindings.vim
+source ~/.vim/go.vim
 source ~/.vim/vundleconf.vim
 source ~/.vim/tagbar.vim
 runtime macros/matchit.vim
@@ -40,6 +41,7 @@ filetype plugin indent off
 set rtp+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
+
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
