@@ -13,6 +13,7 @@ augroup myfiletypes
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
+au BufNewFile,BufRead *.lmx set filetype=xml
 "" ================
 "
 "
@@ -21,6 +22,7 @@ au InsertLeave <buffer> update
 let mapleader = ","
 source ~/.vim/keybindings.vim
 source ~/.vim/go.vim
+source ~/.vim/ack.vim
 source ~/.vim/vundleconf.vim
 source ~/.vim/tagbar.vim
 runtime macros/matchit.vim
@@ -41,16 +43,7 @@ filetype plugin indent off
 set rtp+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
-
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
+au BufNewFile,BufRead *.vue set filetype=html
 
 scriptencoding utf-8
 set encoding=utf-8
@@ -120,12 +113,6 @@ set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 "endif " has("autocmd")
 "
 "
-if $COLORTERM == 'gnome-terminal'
-  set term=gnome-256color
-  colorscheme railscasts
-else
-  colorscheme default
-endif
 
 " command-t settings
 let g:CommandTMaxHeight = 10
@@ -139,24 +126,12 @@ let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
 " experimental http://vim.wikia.com/wiki/VimTip1599
-command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
-function! s:RunShellCommand(cmdline)
-  echo a:cmdline
-  let expanded_cmdline = a:cmdline
-  for part in split(a:cmdline, ' ')
-    if part[0] =~ '\v[%#<]'
-      let expanded_part = fnameescape(expand(part))
-      let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
-    endif
-  endfor
-  botright new
-  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-  call setline(1, 'You entered:    ' . a:cmdline)
-  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
-  call setline(3,substitute(getline(2),'.','=','g'))
-  execute '$read !'. expanded_cmdline
-  setlocal nomodifiable
-  1
-endfunction
-highlight ColorColumn ctermbg=darkgrey ctermfg=white guibg=#222
+"highlight ColorColumn ctermbg=darkgrey ctermfg=white guibg=#222
 set cc=81
+
+" open quickfix to bottom
+autocmd FileType qf wincmd J
+" trigger completor in go
+let g:completor_go_omni_trigger = '(?:\b[^\W\d]\w*|[\]\)])\.(?:[^\W\d]\w*)?'
+
+colorscheme molokai

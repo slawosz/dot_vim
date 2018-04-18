@@ -21,10 +21,13 @@ Bundle 'matchit.zip'
 "Bundle 'rson/vim-conque'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
 Plugin 'fatih/vim-go'
+Plugin 'fatih/molokai'
 Plugin 'majutsushi/tagbar'
+"Plugin 'maralla/completor.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'elixir-editors/vim-elixir'
 
 call vundle#end()
 filetype plugin indent on
