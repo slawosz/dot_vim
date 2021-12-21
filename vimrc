@@ -22,7 +22,6 @@ au InsertLeave <buffer> update
 let mapleader = ","
 source ~/.vim/keybindings.vim
 source ~/.vim/go.vim
-source ~/.vim/ack.vim
 source ~/.vim/vundleconf.vim
 source ~/.vim/tagbar.vim
 runtime macros/matchit.vim
@@ -77,42 +76,6 @@ set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 "command Qall qall
 "
 set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-"
-"
-"" ========================================================================
-"" End of things set by me.
-"" ========================================================================
-"
-"" Only do this part when compiled with support for autocommands.
-"if has("autocmd")
-"
-"  " Enable file type detection.
-"  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-"  " 'cindent' is on in C files, etc.
-"  " Also load indent files, to automatically do language-dependent indenting.
-"  filetype plugin indent on
-"
-"  " Put these in an autocmd group, so that we can delete them easily.
-"  augroup vimrcEx
-"  au!
-"
-"  " For all text files set 'textwidth' to 78 characters.
-"  autocmd FileType text setlocal textwidth=78
-"
-"  " When editing a file, always jump to the last known cursor position.
-"  " Don't do it when the position is invalid or when inside an event handler
-"  " (happens when dropping a file on gvim).
-"  autocmd BufReadPost *
-"    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-"    \   exe "normal g`\"" |
-"    \ endif
-"
-"  augroup END
-"
-"endif " has("autocmd")
-"
-"
 
 " command-t settings
 let g:CommandTMaxHeight = 10

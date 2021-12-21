@@ -31,8 +31,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
 Plugin 'The-NERD-tree'
 Plugin 'ZoomWin'
-Plugin "MarcWeber/vim-addon-mw-utils"
-Plugin "tomtom/tlib_vim"
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 Plugin 'snipMate'
 Plugin 'surround.vim'
 Plugin 'repeat.vim'
